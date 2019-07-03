@@ -1,16 +1,9 @@
-"""
-    CRC ou Verificacao de Redundancia Ciclica eh um metodo de deteccao de erros acideitais no canal de comunicacao;
-    Ele usa o polinomio do gerador, que esta em ambos os lados (receptor e emissor).
-    Ex.:1 de polinomio gerador: pow(x,3) + 1: Ele representa a chave 1001
-    ex.:2 de polinomio gerador: pow(x,2) + x: Ele representa a chave 110
-    
-"""
 
 def xor(a, b):
     """
         Percorre toda a cadeia de bits
         Se bit sao iguais, XOR = 0
-                    else  XOR = 1
+                    senao  XOR = 1
         Ou exclusivo
     """
     resultado = []

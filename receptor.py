@@ -1,11 +1,3 @@
-"""
-    - O receptor recebe uma mensagem codificada do remetente
-    - Receptor com uma replica da chave decodifica os dados e verifica o resto
-    - se o resto eh zero, entao siginifica que nao tem nenhum erro 
-    - se o resto nao eh zero, sigifnica que deu erro, e um NON ACK eh enviado ao remetente
-    - O remetente precisa reenviar o dado ate que o receptor tenha os dados corretos
-"""
-
 import socket
 from util import decodeData
 
