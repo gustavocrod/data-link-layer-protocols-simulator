@@ -1,11 +1,11 @@
 # Data Link Layer protocols simulator
 
 ## CRC 
-ou Verificacao de Redundância Ciclica é um metodo de detecção de erros no canal de comunicação
+ou Código de Redundância Ciclica é um metodo de detecção de erros no canal de comunicação
 
-Ele utiliza o polinomio do gerador, que esta em ambos os lados (receiver e sender)
+Ele utiliza codigo polinomial, que esta em ambos os lados (receiver e sender)
 
-Exemplo de polinomio gerador: 
+Exemplo de codigo polinomial: 
 x^3 + 1 (chave 1001)
 x^2 + x (chave 110)
 
