@@ -3,7 +3,7 @@
 ## CRC 
 ou Código de Redundância Ciclica é um metodo de detecção de erros no canal de comunicação
 
-Ele utiliza um codigo gerador, que esta em ambos os lados (receiver e sender)
+Ele utiliza um codigo gerador, que é conhecido por ambos os lados (receiver e sender)
 
 Funciona da seguinte forma: Um código CRC é incorporado a mensagem enviada, o receptor quando a recebe, faz o cálculo e verifica se o CRC resultante é o mesmo incorporado a mensagem.
 
@@ -18,9 +18,9 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 
 * Converte a string que deseja enviar para binario
 
-* Adiciona à string o numero de 0s = a quantidade de bits do gerador - 1 
+* Adiciona à string o numero de 0s = (quantidade de bits do gerador) - 1 
 
-* Calcula o CRC (XOR)
+* Calcula o CRC //modulo 2 - xor
 
 * Adiciona ao final da mensagem o codigo CRC
 
