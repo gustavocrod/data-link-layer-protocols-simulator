@@ -3,6 +3,24 @@
 ## Framing
 ou Enquadramento
 
+* Dividir o bit-stream em quadros (unidade de transmissao de dados) para gerenciar a transmissão e facilitar no controle de erros.
+
+#### Contagem de caracter
+
+* Adicionar um campo no header indicando o número de caracteres presente no frame (quadro)
+
+* Ao receber o quadro, o receiver lê o campo de contagem e sabe a partir dali determinar onde está o final do quadro
+
+- [Problema:] perde sincronização se houver erro no campo que indica o número de caracteres.
+
+#### Enquadramento por caracter
+
+* Inserir um caracter especial (flag) no ínicio e no fim do quadro
+
+- [Problema:] End of TeXt ou Start of TeXt podee estar presente nos DADOS, o que gera erro de interpretação
+
+
+
 ## CRC 
 ou Código de Redundância Ciclica é um metodo de detecção de erros no canal de comunicação
 
@@ -17,7 +35,7 @@ x^3 + 1 (chave 1001)
 x^2 + x (chave 110)
 x^5 + x^3 + x^2 + x^0 (chave 101101)
 
-### Sender CRC
+#### Sender CRC
 
 * Converte a string que deseja enviar para binario
 
@@ -31,7 +49,7 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 
 * O sender envia os dados para o receiver
 
-### Receiver CRC
+#### Receiver CRC
 * O receiver recebe uma mensagem codificada do sender
 
 * O receiver (com sua replica da chave) decodifica os dados e verifica o resto da divisao
