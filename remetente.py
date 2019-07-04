@@ -2,7 +2,7 @@ import socket
 from util import encodeData
 
 s = socket.socket()
-s.connect(('127.0.0.1', ))
+s.connect(('127.0.0.1', 9000))
 
 input = raw_input("Entre com os dados que deseja enviar: ")
 dado = (''.join(format(ord(x), 'b') for x in input))

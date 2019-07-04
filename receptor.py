@@ -2,7 +2,7 @@ import socket
 from util import decodeData
 
 s = socket.socket()
-s.bind(('',))
+s.bind(('',9000))
 s.listen(5)
 print("listening...")
 
