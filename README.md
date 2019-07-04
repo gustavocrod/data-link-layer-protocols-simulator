@@ -1,5 +1,8 @@
 # Data Link Layer protocols simulator
 
+## Framing
+ou Enquadramento
+
 ## CRC 
 ou Código de Redundância Ciclica é um metodo de detecção de erros no canal de comunicação
 
@@ -14,7 +17,7 @@ x^3 + 1 (chave 1001)
 x^2 + x (chave 110)
 x^5 + x^3 + x^2 + x^0 (chave 101101)
 
-## Sender CRC
+### Sender CRC
 
 * Converte a string que deseja enviar para binario
 
@@ -28,7 +31,7 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 
 * O sender envia os dados para o receiver
 
-## Receiver CRC
+### Receiver CRC
 * O receiver recebe uma mensagem codificada do sender
 
 * O receiver (com sua replica da chave) decodifica os dados e verifica o resto da divisao
