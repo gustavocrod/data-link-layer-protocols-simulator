@@ -27,15 +27,15 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 * O sender envia os dados para o receiver
 
 ## Receiver CRC
-O receiver recebe uma mensagem codificada do sender
+* O receiver recebe uma mensagem codificada do sender
 
-O receiver (com sua replica da chave) decodifica os dados e verifica o resto da divisao
+* O receiver (com sua replica da chave) decodifica os dados e verifica o resto da divisao
 
-se o resto for 0s, entao não houve erro
+  * se o resto for 0s, entao não houve erro
 
-se o resto for !0s, deu algum erro, e um NON ACK é enviado ao sender
+  * se o resto for !0s, deu algum erro, e um NON ACK é enviado ao sender
 
-O sender precisa reenviar o dado ate que o receiver tenha os dados corretos
+* O sender precisa reenviar o dado ate que o receiver tenha os dados corretos
 
 
 
