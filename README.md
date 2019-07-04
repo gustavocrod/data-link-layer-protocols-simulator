@@ -22,6 +22,8 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 
 * Calcula o CRC //modulo 2 - xor que é realizado transladando para a direita a cada iteração
 
+* O resto da divisao é o CRC
+
 * Adiciona ao final da mensagem o codigo CRC
 
 * O sender envia os dados para o receiver
