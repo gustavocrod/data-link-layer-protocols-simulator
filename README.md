@@ -20,7 +20,7 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 
 * Adiciona à string o numero de 0s = (quantidade de bits do gerador) - 1 
 
-* Calcula o CRC //modulo 2 - xor
+* Calcula o CRC //modulo 2 - xor que é realizado transladando para a direita a cada iteração
 
 * Adiciona ao final da mensagem o codigo CRC
 
