@@ -43,7 +43,7 @@ ou Enquadramento
 
 * Cada quadro começa e termina com o flag.
 
-[Exemplo] 01111110 ou 01^0
+[Exemplo] 01111110 ou 01^60
 
 [Problema] O flag pode estar presente nos DADOS
 
