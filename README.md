@@ -69,7 +69,7 @@ ou Enquadramento
 
 * Receptor detecta erro e solicita retransmissao ao trasmissor (implementaçao atraves dos protocolos `ARQ`) [Implementado]
 
-## Controle de Fluxo
+## Controle de Fluxo [Implementado]
 ![Stop and wait Protocol](Stop-and-Wait-Protocol.png)
 ## Metodos de Detecçao de erro
 
