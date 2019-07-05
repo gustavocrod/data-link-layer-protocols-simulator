@@ -2,7 +2,7 @@ import socket
 from util import decodeData
 
 s = socket.socket()
-s.bind(('',9000))
+s.bind(('',10000))
 s.listen(5)
 print("listening...")
 
@@ -17,9 +17,9 @@ while True:
     chave = "1011"
     quest = decodeData(dado, chave) # decodifica com a copia da chave q o server tem
     #print("Resto depois da decodificacao eh: " + quest)
-    
     aux = '0'*(len(chave)-1) # se resto sao todos zeros entao n teve erro
     if quest == aux:
+        print("ACK")
         c.sendall("ACK")
     else:
         c.sendall("NON ACK")

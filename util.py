@@ -11,16 +11,16 @@ def framing(payload, delimiter, macSender, macReceiver):
         if (cont == delimiter):
             macsender = (''.join(format(ord(x), 'b') for x in macSender)) # converte o mac do remetente para bit
             macreceiver = (''.join(format(ord(x), 'b') for x in macReceiver)) # converte o mac do destinatario para bit
-            frame.append('01111110') # adiciona um marcador no inicio do quadro
             frame.append(macsender) # adiciona no inicio do quadro
             frame.append(macreceiver) # adiciona depois do mac do sender
-            dado = lista_dado[i:i+delimiter]
+            dado = lista_dado[i+1:i+delimiter] # 
             if (len(dado) < delimiter): # padding
                 for j in range (len(dado), delimiter):
                     dado.append('1')
-
-            frames.append(dado)
-            lista_dado.append('01111110')
+            dado = ''.join(dado)
+            frame.append(dado)
+            frame = ''.join(frame)
+            frames.append(frame)
             cont = 0
         cont+=1
         
