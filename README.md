@@ -1,6 +1,8 @@
 # Data Link Layer protocols simulator
 
-Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por caracter utilizando `DLE`, o controle de fluxo utilizando Stop-and-Wait e detecçao de erros utilizando `CRC`.
+Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por bit `DLE` (tentativa de solucao), o controle de fluxo utilizando Stop-and-Wait e detecçao de erros utilizando `CRC`.
+
+## | MAC Sender | MAC Receiver | DLE |    Payload     | CRC |
 
 Os conceitos necessarios para entender a implementacao encontram-se abaixo: 
 
