@@ -1,8 +1,8 @@
 # Data Link Layer protocols simulator
 
-Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por bit `DLE` (tentativa de solucao), o controle de fluxo utilizando Stop-and-Wait e detecçao de erros utilizando `CRC`.
+Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por flag no inicio e fim de quadro, o controle de fluxo utilizando `Stop-and-Wait` e detecçao de erros utilizando `CRC`.
 
-## | MAC Sender | MAC Receiver | DLE |    Payload     | CRC |
+##  | STX | MAC Sender | MAC Receiver |  Payload | ETX | CRC |
 
 Os conceitos necessarios para entender a implementacao encontram-se abaixo: 
 
@@ -19,7 +19,7 @@ ou Enquadramento
 
 [Problema:] perde sincronização se houver erro no campo que indica o número de caracteres.
 
-### Enquadramento por caracter
+### Enquadramento por caracter [Implementado]
 
 * Inserir um caracter especial no ínicio e no fim do quadro
 
@@ -69,6 +69,8 @@ ou Enquadramento
 
 * Receptor detecta erro e solicita retransmissao ao trasmissor (implementaçao atraves dos protocolos `ARQ`) [Implementado]
 
+## Controle de Fluxo
+![Stop and wait Protocol](Stop-and-Wait.png)
 ## Metodos de Detecçao de erro
 
 * Paridade
