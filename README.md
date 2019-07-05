@@ -132,9 +132,11 @@ ou Código de Redundância Ciclica
 * Subtrai o resto do numero original
 
 [EXEMPLO] codigo Polinomial: 
-`x^3 + 1 (chave 1001)
-x^2 + x (chave 110)
-x^5 + x^3 + x^2 + x^0 (chave 101101)`
+` * x^3 + 1 (chave 1001)`
+  
+  `* x^2 + x (chave 110)`
+  
+  `* x^5 + x^3 + x^2 + x^0 (chave 101101)`
 
 ##### Sender CRC [Implementado]
 
