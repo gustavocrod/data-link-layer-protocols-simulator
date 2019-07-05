@@ -17,7 +17,7 @@ def xor(a, b):
 def mod2div(dividendo, divisor):
     """
         recebe um numero para dividir
-        e um numero divisos
+        e um numero divisor (chave)
         Realiza divisao Modulo-2 
         
     """
@@ -26,11 +26,12 @@ def mod2div(dividendo, divisor):
     # pega um pedaco do dividendo apenas
     aux = dividendo[0 : pick] # de 0 ate o tamanho do divisor
     
-    while pick < len(dividendo):
+    while pick < len(dividendo): # enquanto nao dividir todo o numero
+        # se o bit mais significante eh '1'
         if aux[0] == '1':
             # troca o dividendo pelo resultado da xor 
             aux = xor(divisor, aux) + dividendo[pick]
-        # bit mais sifnificante eh '0'
+        # se bit mais significante eh '0'
         else: 
             """
                 se o mais a esquerda do dividendo for 0, o passo nao pode
@@ -42,7 +43,7 @@ def mod2div(dividendo, divisor):
         pick += 1 # incrementa pick para o prox
         
     """
-        para os ultimos bits, tem q ser feito na mao, pos o valor pode exceder
+        para os ultimos bits, tem q ser feito "na mao", pois o valor pode exceder
         o numero de bouds
     """
     if aux[0] == '1':
@@ -63,7 +64,7 @@ def encodeData(dado, chave):
     """
     
     dado_append = dado + '0'*(len(chave)-1) # append n-1 zeros no final
-    resto = mod2div(dado_append, chave) 
+    resto = mod2div(dado_append, chave)
     
     palavra_chave = dado + resto # coloca o resto nos dados originais
     
