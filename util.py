@@ -1,4 +1,19 @@
 
+
+def framing(dado, delimiter):
+    lista_dado = list(dado) # conversao da string em lista para percorrer
+    cont = 0 # contador auxiliar
+    frames=[] # armazenar os quadros
+    for i in range (0, len(lista_dado)): 
+        if (cont == delimiter):
+            frames.insert(lista_dado[i:i+delimiter])
+            #lista_dado.insert(i, '01111110')
+            cont = 0
+        cont+=1
+        
+    return frames
+
+
 def xor(a, b):
     """
         Percorre toda a cadeia de bits
@@ -8,7 +23,7 @@ def xor(a, b):
     """
     resultado = []
     for i in range(1, len(b)):
-        if a[i] == b[i]:
+        if (a[i] == b[i]):
             resultado.append('0')
         else: 
             resultado.append('1')
@@ -26,7 +41,7 @@ def mod2div(dividendo, divisor):
     # pega um pedaco do dividendo apenas
     aux = dividendo[0 : pick] # de 0 ate o tamanho do divisor
     
-    while pick < len(dividendo): # enquanto nao dividir todo o numero
+    while (pick < len(dividendo)): # enquanto nao dividir todo o numero
         # se o bit mais significante eh '1'
         if aux[0] == '1':
             # troca o dividendo pelo resultado da xor 
@@ -46,7 +61,7 @@ def mod2div(dividendo, divisor):
         para os ultimos bits, tem q ser feito "na mao", pois o valor pode exceder
         o numero de bouds
     """
-    if aux[0] == '1':
+    if (aux[0] == '1'):
         aux = xor(divisor, aux)
     else:
         aux = xor('0'*pick, aux)
@@ -55,6 +70,7 @@ def mod2div(dividendo, divisor):
     return check
 
 
+    
 def encodeData(dado, chave):
     """
         funcao usada pelo remetente para codificar os dados

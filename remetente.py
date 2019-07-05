@@ -1,15 +1,15 @@
 import socket
-from util import encodeData
+from util import encodeData, framing
 
 s = socket.socket()
 s.connect(('127.0.0.1', 9000))
 
 input = raw_input("Entre com os dados que deseja enviar: ")
-dado = (''.join(format(ord(x), 'b') for x in input))
+dado = (''.join(format(ord(x), 'b') for x in input)) # conversao para binario
 print("dado: " + dado)
 chave = "1011"
-
-quest = encodeData(dado, chave)
+dado = framing(dado)
+quest = encodeData(dado, chave) # codificar o dado com a chave
 print("dado cifrado: " + quest)
 s.sendall(quest)
 

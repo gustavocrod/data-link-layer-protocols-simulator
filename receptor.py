@@ -21,9 +21,9 @@ while True:
     
     aux = '0'*(len(chave)-1) # se resto sao todos zeros entao n teve erro
     if quest == aux:
-        c.sendall("Recebemos o dado: " + dado + " sem nenhum erro!")
+        c.sendall("ACK")
     else:
-        c.sendall("Erro no dado")
+        c.sendall("NON ACK")
     
     c.close()
         
