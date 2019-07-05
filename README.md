@@ -1,6 +1,6 @@
 # Data Link Layer protocols simulator
 
-Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por flag no inicio e fim de quadro, o controle de fluxo utilizando `Stop-and-Wait` e detecçao de erros utilizando `CRC`.
+Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por flag no inicio `STX` e fim `ETX` de quadro, o controle de fluxo utilizando `Stop-and-Wait` e detecçao de erros utilizando `CRC`.
 
 ##  | STX | MAC Sender | MAC Receiver |  Payload | ETX | CRC |
 
@@ -70,7 +70,7 @@ ou Enquadramento
 * Receptor detecta erro e solicita retransmissao ao trasmissor (implementaçao atraves dos protocolos `ARQ`) [Implementado]
 
 ## Controle de Fluxo
-![Stop and wait Protocol](Stop-and-Wait.png)
+![Stop and wait Protocol](Stop-and-Wait-Protocol.png)
 ## Metodos de Detecçao de erro
 
 * Paridade
