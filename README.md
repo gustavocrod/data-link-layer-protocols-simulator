@@ -15,13 +15,55 @@ ou Enquadramento
 
 #### Enquadramento por caracter
 
-* Inserir um caracter especial (flag) no ínicio e no fim do quadro
+* Inserir um caracter especial no ínicio e no fim do quadro
 
-- [Problema:] End of TeXt ou Start of TeXt podee estar presente nos DADOS, o que gera erro de interpretação
+[Problema] End of TeXt (ETX) ou Start of TeXt (STX) podem estar presente nos DADOS (se repetir dentro dos dados), o que gera erro de interpretação 
 
+##### Tentativa de soluçao
 
+* Inserir um dado DLE (Data Link Escape) antes de cada caracter especial
 
-## CRC 
+[Problema] DLE pode ainda estar presente nos DADOS
+
+##### Solucao definitiva
+
+* Percorrer o payload antes de transmitir
+
+* Se encontrar um DLE inserir outre DLE antes deste
+
+* Assim, quando o receptor encontrar dois DLEs ele descarta um e sabe qe o resto eh texto e nao flag
+
+#### Enquadramento por bit
+
+* Delimitador de frame: flag (sequencia padrao de bits)
+
+* Cada quadro começa e termina com o flag.
+
+[Exemplo] 01111110 ou 01^0
+
+[Problema] O flag pode estar presente nos DADOS
+
+* Regra: a cada sequencia de 5 bits '1' inserir um bit '0' (chamado de bit stuffing) (Usado no HDLC)
+
+## Codigos de Detecçao/Correçao de Erros
+
+* Duas estrategias basicas:
+
+1 - Incluir informacao redundante suficiente para permitir que o receptor detecte e corrija erros ("Open loop")
+
+2 - Incluir informaçao redundante apenas para permitir que o receptor detecte erros na mensagem ("Feedback")
+
+###### Open Loop
+
+* Nao ha necessidade de retransmissao
+
+* Receptor eh capaz de recuperar a informacao (Forward Error Correction - FEC)
+
+###### Feedback
+
+* Receptor detecta erro e solicita retransmissao ao trasmissor (implementaçao atraves dos protocolos ARQ) [Implementado]
+
+#### CRC [Implementado] 
 ou Código de Redundância Ciclica é um metodo de detecção de erros no canal de comunicação
 
 Ele utiliza um codigo gerador, que é conhecido por ambos os lados (receiver e sender)
@@ -35,7 +77,7 @@ x^3 + 1 (chave 1001)
 x^2 + x (chave 110)
 x^5 + x^3 + x^2 + x^0 (chave 101101)
 
-#### Sender CRC
+###### Sender CRC [Implementado]
 
 * Converte a string que deseja enviar para binario
 
@@ -49,12 +91,12 @@ x^5 + x^3 + x^2 + x^0 (chave 101101)
 
 * O sender envia os dados para o receiver
 
-#### Receiver CRC
+###### Receiver CRC [Implementado]
 * O receiver recebe uma mensagem codificada do sender
 
 * O receiver (com sua replica da chave) decodifica os dados e verifica o resto da divisao
 
-  * se o resto for 0s, entao não houve erro
+  * se o resto for 0s, entao não houve erro, um ACK e enviado ao sender
 
   * se o resto for !0s, deu algum erro, e um NON ACK é enviado ao sender
 
