@@ -1,12 +1,22 @@
 
-
-def framing(dado, delimiter):
-    lista_dado = list(dado) # conversao da string em lista para percorrer
+def framing(payload, delimiter, macSender, macReceiver):
+    lista_dado = list(payload) # conversao da string em uma lista para poder percorrer
     cont = 0 # contador auxiliar
     frames=[] # armazenar os quadros
-    for i in range (0, len(lista_dado)): 
+    for i in range (0, len(lista_dado)):
+        frame = []
         if (cont == delimiter):
-            frames.insert(lista_dado[i:i+delimiter])
+            macsender = (''.join(format(ord(x), 'b') for x in macSender)) # converte o mac do remetente para bit
+            macreceiver = (''.join(format(ord(x), 'b') for x in macReceiver)) # converte o mac do destinatario para bit
+            frame.append(macsender) # adiciona no inicio do quadro
+            frame.append(macreceiver) # adiciona depois do mac do sender
+            frame.append('01111110') # adiciona um marcador
+            dado = lista_dado[i:i+delimiter]
+            if (len(dado) < delimiter): # padding
+                for j in range (len(dado), delimiter):
+                    dado.append('1')
+                    
+            frames.append(dado)
             #lista_dado.insert(i, '01111110')
             cont = 0
         cont+=1
