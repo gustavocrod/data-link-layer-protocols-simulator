@@ -1,6 +1,6 @@
 # Data Link Layer protocols simulator
 
-Um sistema Full-Duplex, que simula uma camada de enlace implementando enquadramento por flag no inicio `STX` e fim `ETX` de quadro, o controle de fluxo utilizando `Stop-and-Wait` e detecçao de erros utilizando `CRC`.
+Um sistema Half-Duplex, que simula uma camada de enlace implementando enquadramento por flag no inicio `STX` e fim `ETX` de quadro, o controle de fluxo utilizando `Stop-and-Wait` e detecçao de erros utilizando `CRC`.
 
 ##  | STX | MAC Sender | MAC Receiver |  Payload | ETX | CRC |
 
